@@ -12,14 +12,6 @@ public class Enemy_Health : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         void OnTriggerEnter(Collider other) {
             if(other.CompareTag("Cube")){
                 Enemy_Health enemy = other.transform.GetComponent<Enemy_Health>();
@@ -29,5 +21,14 @@ public class Enemy_Health : MonoBehaviour
                 }
             }
         }
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
