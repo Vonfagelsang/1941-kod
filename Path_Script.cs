@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Variables{
     public static float check;
+    //Gör private med property
 }
 public class Path_Script : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Vector3 targetPosition;
+    private Vector3 targetPosition;
     
-    public float moveSpeed;
+    private float moveSpeed;
     
     
 
@@ -25,26 +26,22 @@ public class Path_Script : MonoBehaviour
         Vector3 b = GameObject.Find("Cube").transform.position;
         Vector3 c = GameObject.Find("Path2").transform.position;
         if(Variables.check == 1){
-        Vector3 directionToMove = a - transform.position;
-        directionToMove = directionToMove.normalized * Time.deltaTime * moveSpeed;
-        float maxDistance = Vector3.Distance(transform.position, targetPosition);
-        transform.position = transform.position + Vector3.ClampMagnitude(directionToMove, maxDistance);
-        if(a == b){
-            Variables.check = 2;
-        }
+            Vector3 directionToMove = a - transform.position;
+            directionToMove = directionToMove.normalized * Time.deltaTime * moveSpeed;
+            float maxDistance = Vector3.Distance(transform.position, targetPosition);
+            transform.position = transform.position + Vector3.ClampMagnitude(directionToMove, maxDistance);
+            if(a == b){
+                Variables.check = 2;
+            }
         }
         else if(Variables.check == 2){
-        Vector3 directionToMove = c - transform.position;
-        directionToMove = directionToMove.normalized * Time.deltaTime * moveSpeed;
-        float maxDistance = Vector3.Distance(transform.position, targetPosition);
-        transform.position = transform.position + Vector3.ClampMagnitude(directionToMove, maxDistance);
-        if(b == c){
-            Variables.check = 1;
+            Vector3 directionToMove = c - transform.position;
+            directionToMove = directionToMove.normalized * Time.deltaTime * moveSpeed;
+            float maxDistance = Vector3.Distance(transform.position, targetPosition);
+            transform.position = transform.position + Vector3.ClampMagnitude(directionToMove, maxDistance);
+            if(b == c){
+                Variables.check = 1;
+            }
         }
-        }
-    }
-
-    void ReachedPoint(){
-        // slumpa nästa
     }
 }
