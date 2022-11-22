@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class Enemy_Health : MonoBehaviour
 {
-    private int Health = 5;
+    [SerializeField] int health = 5;
     public void Damage(){
-        Health--;
-        if(Health <= 0){
+        health--;
+        if(health <= 0){
             Destroy(this.gameObject);
         }
     }
-    void OnTriggerEnter(Collider other) {
-        if(other.CompareTag("Cube")){
-            Enemy_Health enemy = other.transform.GetComponent<Enemy_Health>();
-            if(enemy != null){
-                enemy.Damage();
-                Destroy(this.gameObject);
-            }
-        }
-    }
+    
     void Start()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if(other.body.CompareTag("Cube")){
+           Damage();
+        }
     }
 
     // Update is called once per frame
