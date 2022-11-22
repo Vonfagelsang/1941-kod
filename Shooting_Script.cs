@@ -6,8 +6,6 @@ public class Shooting_Script : MonoBehaviour
 {
     public Rigidbody projectile;
     
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +19,7 @@ public class Shooting_Script : MonoBehaviour
         {
             Rigidbody clone;
             clone = Instantiate(projectile, new Vector3(0, 0, 4f), transform.rotation);
-            clone.velocity = new Vector3(0, 0, 3.4f);
+            clone.velocity = new Vector3(0, 0, 6.4f);
         }
     }
 }
