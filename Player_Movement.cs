@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float speed = 1;
+    public float speed = 0.7f;
     public Vector3 target = new Vector3(-2.850275f, 2.34637f, -0.2f);
     private Vector3 origin;
     void Start()
@@ -22,7 +22,7 @@ public class Player_Movement : MonoBehaviour
         origin = new Vector3(-2.850275f, 2.44637f, -0.2f);
     }
     if(transform.position.y == 2.44637f){
-        target = new Vector3(-2.850275f, 1.34637f, -0.2f);
+        target = new Vector3(-2.850275f, 1.5f, -0.2f);
     }
 
     }

@@ -19,6 +19,7 @@ public class Projectile_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), GameObject.Find("Player").GetComponent<Collider>());
         
     }
 }
