@@ -20,6 +20,5 @@ public class Projectile_Script : MonoBehaviour
     void Update()
     {
         Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), GameObject.Find("Player").GetComponent<Collider>());
-        
     }
 }

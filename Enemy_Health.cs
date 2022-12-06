@@ -4,22 +4,36 @@ using UnityEngine;
 
 public class Enemy_Health : MonoBehaviour
 {
-    [SerializeField] int health = 5;
-    public void Damage(){
+   
+    
+    void Start()
+    {
+    }
+    private bool isInvincible = false;
+    
+    private IEnumerator Invincible()
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(3);
+        isInvincible = false;
+    }
+
+    [SerializeField] int health = 3;
+    private void Damage(){
+        if(isInvincible) return;
         health--;
         if(health <= 0){
             Destroy(this.gameObject);
         }
-    }
-    
-    void Start()
-    {
-        
+        StartCoroutine(Invincible());
     }
 
     private void OnCollisionEnter(Collision other) {
         if(other.body.CompareTag("Cube")){
            Damage();
+           if(!isInvincible){
+            StartCoroutine(Invincible());
+           }
         }
     }
 
@@ -28,4 +42,5 @@ public class Enemy_Health : MonoBehaviour
     {
         
     }
+
 }

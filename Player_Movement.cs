@@ -5,25 +5,20 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float speed = 0.7f;
-    public Vector3 target = new Vector3(-2.850275f, 2.34637f, -0.2f);
-    private Vector3 origin;
+    private Vector3 mousePosition;
     void Start()
     {
-        origin = transform.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-    transform.position = Vector3.MoveTowards (transform.position, target, speed * Time.deltaTime);
-    if(transform.position == target) {
-        target = origin;
-        origin = new Vector3(-2.850275f, 2.44637f, -0.2f);
-    }
-    if(transform.position.y == 2.44637f){
-        target = new Vector3(-2.850275f, 1.5f, -0.2f);
-    }
-
+        mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        Vector3 newPos = transform.position;
+        newPos.x = Input.mousePosition.x;
+        newPos.x = Vector2.Lerp(new Vector2(-12.4f, transform.position.y),new Vector2(12.4f, transform.position.y), newPos.x/Screen.width).x * -1;
+        transform.position = newPos;
     }
 }
