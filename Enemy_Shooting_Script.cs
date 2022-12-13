@@ -26,7 +26,7 @@ public class Enemy_Shooting_Script : MonoBehaviour
         if(Input.GetMouseButtonDown(1))
         {
             Rigidbody clone;
-            clone = Instantiate(projectile, GameObject.Find("Enemy").transform.position, transform.rotation);
+            clone = Instantiate(projectile, GameObject.Find("Enemy_plane_gun").transform.position, transform.rotation);
             clone.velocity = new Vector3(0, 0, 6.4f);
         }
         

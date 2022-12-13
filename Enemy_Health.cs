@@ -14,7 +14,7 @@ public class Enemy_Health : MonoBehaviour
     private IEnumerator Invincible()
     {
         isInvincible = true;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0);
         isInvincible = false;
     }
 
@@ -28,8 +28,8 @@ public class Enemy_Health : MonoBehaviour
         StartCoroutine(Invincible());
     }
 
-    private void OnCollisionEnter(Collision other) {
-        if(other.body.CompareTag("Cube")){
+    private void OnTriggerEnter(Collider other) {
+        if(other.CompareTag("Cube")){
            Damage();
            if(!isInvincible){
             StartCoroutine(Invincible());

@@ -10,7 +10,7 @@ public class Path_Script : MonoBehaviour
     // Start is called before the first frame update
     private Vector3 targetPosition;
     
-    private float moveSpeed;
+    private float moveSpeed = 2;
     
     
 
@@ -23,7 +23,7 @@ public class Path_Script : MonoBehaviour
     void Update()
     {
         Vector3 a = GameObject.Find("Path1").transform.position;
-        Vector3 b = GameObject.Find("Cube").transform.position;
+        Vector3 b = GameObject.Find("Enemy_Plane").transform.position;
         Vector3 c = GameObject.Find("Path2").transform.position;
         if(Variables.check == 1){
             Vector3 directionToMove = a - transform.position;

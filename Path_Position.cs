@@ -6,8 +6,8 @@ public class Path_Position : MonoBehaviour
 {
     
     float x;
-    float y;
-    float z = 0;
+    float y = 2.2f;
+    float z;
     float checkCheck = 1;
     Vector3 pos;
     
@@ -22,14 +22,14 @@ public class Path_Position : MonoBehaviour
         if(Variables.check == 1){
             if(checkCheck == 1){
                 x = Random.Range(1, 6);
-                y = Random.Range(1, 3);
+                z = Random.Range(-10, -15);
                 pos = new Vector3(x, y, z);
                 transform.position = pos;
                 checkCheck = 2;
             }
             else if(Variables.check == 2){
                 x = Random.Range(1, 6);
-                y = Random.Range(1, 3);
+                z = Random.Range(-10, -15);
                 pos = new Vector3(x, y, z);
                 transform.position = pos;
                 checkCheck = 1;
