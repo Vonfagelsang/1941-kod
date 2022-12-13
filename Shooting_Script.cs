@@ -19,7 +19,7 @@ public class Shooting_Script : MonoBehaviour
         {
             Rigidbody clone;
             clone = Instantiate(projectile, GameObject.Find("Player").transform.position, transform.rotation);
-            clone.velocity = new Vector3(0, 0, -6.4f);
+            clone.velocity = new Vector3(0, 0, -3.4f);
         }
     }
 }

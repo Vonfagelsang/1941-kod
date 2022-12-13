@@ -6,9 +6,7 @@ public class Enemy_Projectile_Script : MonoBehaviour
 {
      //Start is called before the first frame update
     private void OnCollisionEnter(Collision other) {
-        if(other.body.CompareTag("Enemy")){
-            return;
-        } 
+        if(other.body.CompareTag("Enemy"))return; 
         Destroy(this.gameObject);
     }
     void Start()
